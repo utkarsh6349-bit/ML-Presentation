@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Types of Machine Learning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
+body{
+min-height:100dvh;color:#fff;
+background:
+linear-gradient(rgba(6,18,35,.88),rgba(6,18,35,.92)),
+url("https://images.unsplash.com/photo-1535378917042-10a22c95931a");
+background-size:cover;background-position:center;
+animation:bgMove 35s ease-in-out infinite;
+}
+@keyframes bgMove{50%{background-position:center top}}
+
+.grid{
+position:fixed;inset:0;pointer-events:none;z-index:0;
+background:
+linear-gradient(rgba(0,245,255,.05) 1px,transparent 1px),
+linear-gradient(90deg,rgba(0,245,255,.05) 1px,transparent 1px);
+background-size:80px 80px;animation:gridMove 80s linear infinite}
+@keyframes gridMove{to{background-position:800px 800px}}
+
+.main{position:relative;z-index:2;padding-bottom:120px}
+header{text-align:center;padding:90px 20px 60px}
+header h1{font-size:34px;text-shadow:0 0 25px #00f5ff}
+header p{opacity:.85;margin-top:12px}
+
+.section{
+margin:28px 18px;padding:32px;border-radius:32px;
+background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+backdrop-filter:blur(22px);
+border:1px solid rgba(0,245,255,.35);
+box-shadow:0 20px 45px rgba(0,0,0,.55);
+opacity:0;transform:translateY(45px);
+transition:1.2s cubic-bezier(.22,1,.36,1);
+}
+.section.active{opacity:1;transform:translateY(0)}
+
+.img-wrap{height:190px;border-radius:22px;overflow:hidden;margin-bottom:18px}
+.img-wrap img{width:100%;height:100%;object-fit:cover}
+
+h3{color:#00f5ff;margin-bottom:14px}
+
+.btn{
+margin:80px auto 0;width:90%;max-width:360px;
+padding:18px;border-radius:30px;
+background:linear-gradient(135deg,#00f5ff,#0077ff);
+text-align:center;font-size:18px;font-weight:700;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="grid"></div>
+<div class="main">
+
+<header>
+<h1>🧠 Types of Machine Learning</h1>
+<p>Different ways machines learn from data</p>
+</header>
+
+<div class="section">
+<div class="img-wrap">
+<img src="https://techvidvan.com/tutorials/wp-content/uploads/2020/07/Supervised-Learning-in-ML-tv.jpg">
+</div>
+<h3>Supervised Learning</h3>
+<p>Learning using labeled data (classification & regression).</p>
+</div>
+
+<div class="section">
+<div class="img-wrap">
+<img src="https://databasetown.com/wp-content/uploads/2023/05/Unsupervised-Learning-1536x1090.jpg">
+</div>
+<h3>Unsupervised Learning</h3>
+<p>Finding hidden patterns in unlabeled data.</p>
+</div>
+
+<div class="section">
+<div class="img-wrap">
+<img src="https://techvidvan.com/tutorials/wp-content/uploads/sites/2/2020/08/Reinforcement-Learning-in-ML-TV.jpg">
+</div>
+<h3>Reinforcement Learning</h3>
+<p>Learning through rewards and penalties.</p>
+</div>
+
+<div class="btn" onclick="location.href='ml-applications.html'">
+➡️ Go to Next Page
+</div>
+
+</div>
+
+<script>
+const sections=document.querySelectorAll(".section");
+const reveal=()=>sections.forEach(s=>{
+if(s.getBoundingClientRect().top<innerHeight-90)s.classList.add("active");
+});
+addEventListener("scroll",reveal);reveal();
+</script>
+</body>
+</html>
